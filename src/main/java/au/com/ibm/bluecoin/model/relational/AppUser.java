@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
 import au.com.ibm.bluecoin.scaffold.AbstractMasterEntity;
@@ -26,6 +27,14 @@ public class AppUser extends AbstractMasterEntity<String> {
 	String password;
 
 	String roles;
+	
+	String mobile;
+	
+	String email;
+	
+	@OneToOne
+	private Team team;
+	
 
 	@Version
 	private int version;
@@ -128,6 +137,48 @@ public class AppUser extends AbstractMasterEntity<String> {
 
 	private void resetRole() {
 		setRoles("");
+	}
+
+	/**
+	 * @return the mobile
+	 */
+	public String getMobile() {
+		return mobile;
+	}
+
+	/**
+	 * @param mobile the mobile to set
+	 */
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	/**
+	 * @return the team
+	 */
+	public Team getTeam() {
+		return team;
+	}
+
+	/**
+	 * @param team the team to set
+	 */
+	public void setTeam(Team team) {
+		this.team = team;
 	}
 
 }

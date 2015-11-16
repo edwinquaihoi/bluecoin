@@ -32,12 +32,17 @@ public class NavigationBean {
 	}
 				
 	public void home() {
-		getSessionModel().addPage(new PageDetails("home.xhtml", null, null));
-		getSessionModel().setContent("home.xhtml");	
+		getSessionModel().addPage(new PageDetails("/home.xhtml", null, null));
+		getSessionModel().setContent("/home.xhtml");	
 	}
 		
 	public void login() {
 		getSessionModel().setContent("login.xhtml");
+	}
+	
+	public void appuserlist() {
+		LOGGER.info("Getting UserList");
+		getSessionModel().setContent("/ui/appuser/appuser.xhtml");
 	}
 
 	public void send() {
@@ -45,6 +50,28 @@ public class NavigationBean {
 		getSessionModel().setContent("/ui/send.xhtml");
 	}
 
+	public void createTeam() {
+		LOGGER.info("Send coins");
+		getSessionModel().setContent("/ui/createTeam.xhtml");
+	}
+	
+	public void viewRewards() {
+		LOGGER.info("View Rewards");
+		getSessionModel().setContent("/ui/rewardList.xhtml");
+	}
+	
+	
+	public void viewTrophy() {
+		LOGGER.info("View trophy");
+		getSessionModel().setContent("/ui/viewTrophy.xhtml");
+	}
+	
+	public void viewTeamLadder() {
+		LOGGER.info("View team ladder");
+		getSessionModel().setContent("/ui/teamLadder.xhtml");
+	}
+	
+	
 	public SessionModel getSessionModel() {
 		return sessionModel;
 	}

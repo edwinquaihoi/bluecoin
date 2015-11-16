@@ -24,37 +24,47 @@
 	                <div class="Separator"/>
 	                
 	                <div class="Container100 Responsive100">
-				    	<div class="ContainerIndent">
+				    	
 				    		<div class="Card">
 				    			<p:panelGrid styleClass="noBorderGrid" style="border: none !important; padding: 4px">
 									
 									<p:row>
-										<p:column style="width:150px"><h:outputText>Recieptent:</h:outputText></p:column>
-										<p:column><p:inputText/></p:column>
-										<p:column/>
+										<p:column><h:outputText>Recipient:</h:outputText></p:column>
+										
+										<p:column><p:autoComplete  id="recipient" value="#{sendCoinsBean.recipient}" completeMethod="#{sendCoinsBean.completeText}" /></p:column>
+										<!-- <p:column><p:inputText value="#{sendCoinsBean.recipient}"></p:column>
+										  -->
 									</p:row>
 
 									<p:row>
 										<p:column><h:outputText>Coin Type:</h:outputText></p:column>
 										<p:column>
-											<p:selectOneMenu styleClass="Wid90">
+											<p:selectOneMenu styleClass="Wid95">
 					                            <f:selectItem itemLabel="One Team" itemValue="One Team" />
 					                            <f:selectItem itemLabel="Client" itemValue="Client" />
 					                            <f:selectItem itemLabel="Bluecoin" itemValue="Bluecoin" />
 											</p:selectOneMenu>
 										</p:column>
-										<p:column><i class="fa  fa-empire Blue Fs40"/></p:column>
 									</p:row>
 
 									<p:row>
-										<p:column><h:outputText>Ammount:</h:outputText></p:column>
-										<p:column><p:inputText/></p:column>
-										<p:column></p:column>
+										<p:column><h:outputText>Amount:</h:outputText></p:column>
+										<p:column><p:inputText value="#{sendCoinsBean.amount}"/></p:column>
 									</p:row>
-
+									
+									<p:row>
+										<p:column><h:outputText>Message:</h:outputText></p:column>
+										<p:column><p:inputText value="#{sendCoinsBean.message}"/></p:column>
+									</p:row>
+									
+									
+							
 				    			</p:panelGrid>
+								
+								<p:commandButton value="Send" icon="fa fa-send" styleClass="OrangeButton RaisedButton"  action="#{sendCoinsBean.sendCoins}"/>
+								
 				    		</div>
-				    	</div>
+				    	
 	                </div>
 
 	    		</div>
